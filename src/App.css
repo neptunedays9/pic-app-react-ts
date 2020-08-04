@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+#container{
+  width: 100%;
+  /* width:'400'; */
+  height:'400';
+  background-color: #f7f7f7;
+  background: white;
+  float: left;
+}
+#editor {
+    width: 90%;
+    height: 300px;
+    background: green;
+    float: left;
+}
+#imagescroll {
+    margin-left: 10%;
+    height: 400px;
+    background: grey;
+    overflow-y: scroll
+}
