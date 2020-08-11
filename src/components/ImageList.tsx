@@ -5,7 +5,7 @@ import useImage from 'use-image';
 Component to represent a frame in wdit mode
 */
 type ImageListProps = {
-
+    onDragImage : (event : string) => void
 };
 
 // const maxFrame = 2;
@@ -30,9 +30,15 @@ const URLImage = ( image : any) => {
   
 
 export class ImageList extends Component<ImageListProps>{
+    // public dragUrl = React.useRef();
 
     constructor(props : ImageListProps) {
         super(props);
+    }
+
+    draggedImage = (e : React.MouseEvent<HTMLImageElement>) => {
+        var image = e.target as HTMLImageElement;
+        this.props.onDragImage(image.src);
     }
 
     render() {
@@ -45,6 +51,7 @@ export class ImageList extends Component<ImageListProps>{
                 // onDragStart={e => {
                 // dragUrl.current = e.target.src;
                 // }}
+                onDragStart={this.draggedImage}
             />
             <img
                 alt="juice"
@@ -53,22 +60,25 @@ export class ImageList extends Component<ImageListProps>{
                 // onDragStart={e => {
                 // dragUrl.current = e.target.src;
                 // }}
+                onDragStart={this.draggedImage}
             />
             <img
-                alt="juice"
+                alt="slippers"
                 src="https://cdn2.iconfinder.com/data/icons/summer-flat-11/272/summer-vacation-slippers-footwear-flipflops-beach-wear-128.png"
                 draggable="true"
                 // onDragStart={e => {
                 // dragUrl.current = e.target.src;
                 // }}
+                onDragStart={this.draggedImage}
             />
             <img
-                alt="juice"
+                alt="icecream"
                 src="https://cdn2.iconfinder.com/data/icons/summer-flat-11/272/summer-vacation-ice-cream-stick-food-popsicle-128.png"
                 draggable="true"
                 // onDragStart={e => {
                 // dragUrl.current = e.target.src;
                 // }}
+                onDragStart={this.draggedImage}
             />
         </div>)
     }

@@ -1,19 +1,46 @@
 import React, { Component } from "react"
 import { Stage, Layer, Image } from 'react-konva';
+import Konva from "konva";
+import useImage from 'use-image';
+import { FrameImage } from "./FrameImage";
+
 /*
 Component to represent a frame in wdit mode
 */
 type FrameEditProps = {
-
+  images : FrameImage []
 };
 
-export class FrameEdit extends Component<FrameEditProps>{
+type FrameEditState = {
+  images : FrameImage []
+};
+
+const URLImage = ({ image } : any) => {
+  const [img] = useImage(image.src);
+  return (
+    <Image
+      image={img}
+      x={image.x}
+      y={image.y}
+      // I will use offset to set origin to the center of the image
+      offsetX={img ? img.width / 2 : 0}
+      offsetY={img ? img.height / 2 : 0}
+    />
+  );
+};
+
+export class FrameEdit extends Component<FrameEditProps, FrameEditState>{
 
     constructor(props : FrameEditProps) {
         super(props);
+
+        this.state = {
+          images : this.props.images
+        };
     }
 
     render() {
+      console.log('IMAGES', this.state.images)
         return (
         <div id="frame">
             <Stage
@@ -23,11 +50,11 @@ export class FrameEdit extends Component<FrameEditProps>{
                 id="frame"
                 // ref={stageRef}
                 >
-                {/* <Layer>
-                    {images.map(image => {
+                <Layer>
+                    {this.state.images.map(image => {
                     return <URLImage image={image} />;
                     })}
-                </Layer> */}
+                </Layer>
             </Stage>
         </div>
         );

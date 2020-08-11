@@ -4,13 +4,14 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { Frame } from "./Frame";
 
 
 /*
 Component to represent a frame in wdit mode
 */
 type FrameListProps = {
-    frames : number[],
+    frames : Array<Frame>,
     onAddFrame : (event: React.MouseEvent<HTMLButtonElement>) => void,
     onChangeFrame : (event: React.MouseEvent<HTMLButtonElement>) => void
 };
@@ -35,6 +36,8 @@ export class FrameList extends Component<FrameListProps, FrameState>{
 
     constructor(props : FrameListProps) {
         super(props);
+
+        console.log('IN-FRAMELIST ctor', props.frames.length)
         
         // this.frameList.push('some');
         // this.frameList.push('test');
@@ -71,7 +74,7 @@ export class FrameList extends Component<FrameListProps, FrameState>{
 
     render() {
         // const classes = useStyles();
-        console.log('length', this.frameList.length)
+        console.log('IN-FRAMELIST length', this.props.frames.length)
         const mystyle = {
             color: "white",
             // backgroundColor: "DodgerBlue",

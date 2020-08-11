@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { FrameEdit } from "./FrameEdit";
 
 /*
 Component to represent a new story
@@ -17,6 +16,6 @@ export class Login extends Component<MenuProps>{
     }
 
     render() {
-        return <FrameEdit/>
+        return <div/>
     }
 }
