@@ -36,25 +36,7 @@ export class FrameList extends Component<FrameListProps, FrameState>{
 
     constructor(props : FrameListProps) {
         super(props);
-
-        console.log('IN-FRAMELIST ctor', props.frames.length)
-        
-        // this.frameList.push('some');
-        // this.frameList.push('test');
-
-        // this.state = {
-        //     frames : ['test']
-        // }
     }
-
-    // addFrame() {
-
-    //     console.log('INN', this);
-    //     // e.preventDefault();
-    //     this.setState((state) => ({
-    //         frames: state.frames.concat(['test'])
-    //       }));
-    // }
 
     changeFrame = (e : React.MouseEvent<HTMLDivElement>) => {
         console.log('in child frameChanged', e)
@@ -73,8 +55,7 @@ export class FrameList extends Component<FrameListProps, FrameState>{
       }
 
     render() {
-        // const classes = useStyles();
-        console.log('IN-FRAMELIST length', this.props.frames.length)
+
         const mystyle = {
             color: "white",
             // backgroundColor: "DodgerBlue",
@@ -83,7 +64,7 @@ export class FrameList extends Component<FrameListProps, FrameState>{
             width: window.innerWidth/10,
             height: window.innerHeight/8
           };
-          console.log('IN');
+
         return (
             
             <div id="test">

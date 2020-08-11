@@ -5,7 +5,7 @@ import useImage from 'use-image';
 Component to represent a frame in wdit mode
 */
 type ImageListProps = {
-    onDragImage : (event : string) => void
+    onDragImage : (src : string, x : number, y : number) => void
 };
 
 // const maxFrame = 2;
@@ -38,7 +38,7 @@ export class ImageList extends Component<ImageListProps>{
 
     draggedImage = (e : React.MouseEvent<HTMLImageElement>) => {
         var image = e.target as HTMLImageElement;
-        this.props.onDragImage(image.src);
+        this.props.onDragImage(image.src, image.x, image.y);
     }
 
     render() {

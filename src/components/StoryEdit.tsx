@@ -64,7 +64,7 @@ export class StoryEdit extends Component<StoryEditProps, StoryState>{
           }));
     }
 
-    dragImage = (src : string) => {
+    dragImage = (src : string, x : number, y : number) => {
         
         // 1. Make a shallow copy of the items
         let frames = [...this.state.frames];
@@ -78,8 +78,8 @@ export class StoryEdit extends Component<StoryEditProps, StoryState>{
                 height : 20,
                 width : 20,
             
-                x : 10,
-                y : 10
+                x : x,
+                y : y
             });
         }
         else {
@@ -88,8 +88,8 @@ export class StoryEdit extends Component<StoryEditProps, StoryState>{
                 height : 20,
                 width : 20,
             
-                x : 10,
-                y : 10
+                x : x,
+                y : y
             }]
         }
     
